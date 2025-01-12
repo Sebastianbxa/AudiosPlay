@@ -1,0 +1,147 @@
+.wrapper {
+    max-width: 90rem;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 40%;
+   
+    
+  }
+  .tabs {
+    position: relative;
+    margin: 1rem 0;
+    background: #0A2647;
+    height: 14.75rem;
+   
+
+  }
+  .tabs::before,
+  .tabs::after {
+    content: "";
+    display: table;
+  }
+  .tabs::after {
+    clear: both;
+  }
+  .tab {
+    float: left;
+    width: 160px /*33% ok*/
+  }
+  .tab-switch {
+    display: none;
+  }
+  .tab-label {
+    position: relative;
+    display: block;
+    line-height: 2.75em;
+    height: 3em;
+    padding: 0 2.618em;
+    background: #1b74d3;
+    border-right: 0.125rem solid #0c4079;
+    color: #fff;
+    cursor: pointer;
+    top: 0;
+    transition: all 0.25s;
+  }
+  .tab-label:hover {
+    top: -0.25rem;
+    transition: top 0.25s;
+  }
+  .tab-content {
+    height: 28rem;
+    position: absolute;
+    z-index: 1;
+    top: 2.75em;
+    left: 0;
+    padding: 1.618rem; /*Ok*/
+    background: #144272;
+    color: #2c3e50;
+    border-bottom: 0.25rem solid #bdc3c7;
+    opacity: 0;
+    transition: all 0.35s;
+  }
+  .tab-switch:checked + .tab-label {
+    background: #fff;
+    color: #2c3e50;
+    border-bottom: 0;
+    border-right: 0.125rem solid #fff;
+    transition: all 0.35s;
+    z-index: 1;
+    top: -0.0625rem;
+  }
+  .tab-switch:checked + label + .tab-content {
+    z-index: 2;
+    opacity: 1;
+    transition: all 0.35s;
+  }
+
+
+
+
+
+
+  @media (max-width: 767px) {
+
+    .tab {
+      float: left;
+      width: 105px; /*33% ok*/
+    }
+    .tab-switch {
+      display: none;
+    }
+    .tab-label {
+      position: relative;
+      display: block;
+      line-height: 2.75em;
+      height: 3em;
+      padding: 0 0.818em;
+      background: #1b74d3;
+      border-right: 0.125rem solid #0c4079;
+      color: #fff;
+      cursor: pointer;
+      top: 0;
+      transition: all 0.25s;
+      
+    }
+
+
+    .tab-content {
+      padding: 0.618rem; /*Ok*/
+      background: #144272;
+    }
+
+
+    .wrapper {
+      margin-bottom: 200px;
+    }
+
+    
+   
+    
+  
+ 
+  }
+  
+  @media (max-width: 992px) {
+    
+    .tab-content {
+      padding: 0.618rem; /*Ok*/
+      background: #144272;
+    }
+
+    
+
+  }
+  
+  @media (max-width: 1200px) {
+
+.wrapper {
+    max-width: 90rem;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 60%;
+   
+    
+  }
+
+    
+  }

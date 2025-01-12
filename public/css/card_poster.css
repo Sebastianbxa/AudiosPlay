@@ -1,0 +1,158 @@
+.card_poster {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 23px; margin-top: 20px; 
+    background: #0A2647;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3); /*Bordes en las esquinas*/
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.3); /*bordes en los lados*/
+    text-align: center;
+   
+  }
+
+  
+
+  .texto-encima {
+    
+   
+    position: absolute; /* Establecer la posición absoluta para el texto */
+    top: 15%; /* Establecer la distancia desde la parte superior */
+    left: 80%; /* Establecer la distancia desde la izquierda */
+    transform: translate(-50%, -50%); /* Centrar el texto horizontal y verticalmente */
+    color: white; /* Establecer el color del texto */
+    font-size: 38px; /* Establecer el tamaño de fuente del texto */
+    z-index: 1; /* Asegurarse de que el texto esté por encima de la imagen */
+    font-size: 15px;
+  }
+
+
+
+
+  
+  .texto-encima3 {
+    
+   
+    position: absolute; /* Establecer la posición absoluta para el texto */
+    top: 15%; /* Establecer la distancia desde la parte superior */
+    left: 77%; /* Establecer la distancia desde la izquierda */
+    transform: translate(-50%, -50%); /* Centrar el texto horizontal y verticalmente */
+    color: white; /* Establecer el color del texto */
+    font-size: 38px; /* Establecer el tamaño de fuente del texto */
+    z-index: 1; /* Asegurarse de que el texto esté por encima de la imagen */
+    font-size: 15px;
+  }
+
+  
+
+
+
+
+
+  .card_general {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3); /*Bordes en las esquinas*/
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.3); /*bordes en los lados*/
+    text-align: center;
+    margin-left: 100px;
+  }
+
+
+
+
+  
+  .div4 {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3); /*Bordes en las esquinas*/
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.3); /*bordes en los lados*/
+    text-align: left;
+
+    background-color: #144272;
+    margin: 48px auto;
+    margin-top: 100px;
+   
+    
+  }
+
+
+  .div5 {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    padding: 30px;
+    width: 90%;
+    max-width: 850px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3); /*Bordes en las esquinas*/
+   
+    text-align: left;
+    margin-top: 20px;
+    background-color: #144272;
+  }
+
+
+
+  
+  .texto1 h2{
+    text-align: left;
+    color: #858a88;
+    font-size: 20px;
+  }
+
+
+
+.container2 {
+  margin: auto 200px; 
+  background: #3b3b3b;
+}
+
+.container3 {
+  margin: auto 50px;
+}
+
+.texto5 h6{
+  margin: 0 auto;
+  color: aqua;
+}
+
+.prueba {
+  margin: 30px auto;
+}
+
+
+.prueba h3{
+ font-size: 26px;
+}
+
+
+@media screen and (max-width: 1160px) {
+  .container3 {
+    margin: auto 0;
+  }
+}
+@media screen and (max-width: 950px) {
+  .container3 {
+    margin: auto 0;
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .container3 {
+    margin: auto 0;
+  }
+}

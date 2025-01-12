@@ -1,0 +1,315 @@
+
+.profile-picture {
+	border-radius: 100%;
+	overflow: hidden;
+	-webkit-box-sizing: content-box;
+  	-moz-box-sizing: content-box;
+  	box-sizing: content-box;	
+}
+.big-profile-picture {
+    margin: 0 auto;		
+    border: 5px solid #50597b;
+    width: 150px;
+    height: 150px;
+}
+.small-profile-picture {
+    border: 2px solid #50597b;
+    width: 40px;
+    height: 40px;
+}
+
+.user-name {
+    margin: 25px 0 16px;
+    text-align: center;
+}
+.profile-description {
+    width: 210px;
+    margin: 0 auto;
+    text-align: center;
+}
+.profile-options {
+    padding-top: 23px;
+}
+.profile-options li {
+border-left: 1px solid #1f253d;
+}
+.profile-options p {
+    margin: 0;
+    font-size: 22px;
+}
+.profile-options a {
+    display: block;					
+    width: 99px;
+    line-height: 60px;
+    text-align: center;
+    -webkit-transition: background .3s;
+    transition: background .3s;				
+}
+.profile-options a:hover {
+    text-decoration: none;
+    background: #50597b;
+}
+.profile-options a:hover.comments .icon {
+    color: #fcb150;
+}
+.profile-options a:hover.views .icon {
+    color: #11a8ab;
+}
+.profile-options a:hover.likes .icon {
+    color: #e64c65;
+}
+.profile-options .icon {
+    padding-right: 10px;
+}
+.profile-options .comments {
+    border-top: 4px solid #fcb150;
+}
+.profile-options .views {
+    border-top: 4px solid #11a8ab;
+}
+.profile-options .likes {
+    border-top: 4px solid #e64c65;
+}
+
+
+
+
+.horizontal-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+    .horizontal-list li {
+        float: left;
+    }
+
+.clear {
+    clear: both;
+}
+
+.icon {
+    font-size: 25px;
+}
+
+
+.block {
+    /* margin-bottom: 25px; */
+    background: #394264;
+    border-radius: 5px;
+}
+
+.scnd-font-color {
+    color: #9099b7;
+    font-size: 16px;
+}
+
+
+
+.profile-options .comments {
+    border-top: 4px solid #fcb150;
+    width: 574px;
+    background-color: #50597b;
+}
+
+.profile-options .comments .icon {
+    font-size: 25px;
+}
+
+.profile-options .likes {
+    border-top: 4px solid #e64c65;
+    width: 574px;
+        background-color: #50597b;
+}
+
+.profile-options .likes .icon{                   
+    font-size: 25px;
+}
+
+
+                
+    
+
+
+
+/*Formulario Perfil*/
+.account {
+    height: 390px;
+}
+.account .titular {
+    padding: 10px 0;
+}
+.sign-in.button {
+    background: #e64c65;
+    margin: 10px auto;
+}
+    .sign-in.button:hover {
+        background: #cc324b;
+    }
+.account p { 
+    text-align: center;
+}
+
+
+.input-container {
+position: relative;
+}
+.input_form{
+    width: 387px;
+    height: 50px;
+    margin-bottom: 20px;
+    padding-left: 45px;
+    background: #50597b;
+    color: #fff;
+    border: solid 1px #1f253d;
+    border-radius: 5px;		
+}
+
+.input_form2{
+    width: 260px;
+    height: 50px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    background: #50597b;
+    color: #fff;
+    border: solid 1px #1f253d;
+    border-radius: 5px;		
+}
+
+    input[type=text]::-webkit-input-placeholder { /* WebKit browsers */
+            color: #fff;	   		
+        }
+    input[type=text]:-moz-input-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: #fff;	   
+        }
+    input[type=text]::-moz-input-placeholder { /* Mozilla Firefox 19+ */
+            color: #fff;
+        }
+    input[type=text]:-ms-input-placeholder { /* Internet Explorer 10+ */
+            color: #fff;	   	
+        }
+        input[type=text]:focus {
+            outline: none; /* removes the default orange border when focus */
+            border: 1px solid #11a8ab;
+        }
+.input-icon {
+    font-size: 22px;
+    position: absolute;
+    left: 138px;
+    top: 10px;
+    color: #9099b7
+}
+    .input-icon.password-icon {
+        left: 35px;
+    }
+
+
+
+
+
+/* CSS */
+.button-18 {
+    align-items: center;
+    background-color: #0A66C2;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 480px;
+    min-height: 40px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+}
+
+.button-18:hover,
+.button-18:focus { 
+    background-color: #16437E;
+    color: #ffffff;
+}
+
+.button-18:active {
+    background: #09223b;
+    color: rgb(255, 255, 255, .7);
+}
+
+.button-18:disabled { 
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
+}
+
+
+
+
+@media screen and (max-width: 1160px) {
+
+}
+@media screen and (max-width: 950px) {
+
+    .input-icon {
+        font-size: 22px;
+        position: absolute;
+        left: 17px;
+        top: 10px;
+        color: #9099b7
+    }
+
+    .input_form{
+        width: 260px;
+        height: 50px;
+        margin-bottom: 20px;
+        padding-left: 45px;
+        background: #50597b;
+        color: #fff;
+        border: solid 1px #1f253d;
+        border-radius: 5px;		
+    }
+
+}
+@media screen and (max-width: 768px) {
+    .profile-options .likes {
+        border-top: 4px solid #e64c65;
+        width: 141px;
+            background-color: #50597b;
+    }
+
+    .profile-options .comments {
+        border-top: 4px solid #fcb150;
+        width: 142px;
+        background-color: #50597b;
+    }
+
+    .input-icon {
+        font-size: 22px;
+        position: absolute;
+        left: 17px;
+        top: 10px;
+        color: #9099b7
+    }
+
+    .input_form{
+        width: 260px;
+        height: 50px;
+        margin-bottom: 20px;
+        padding-left: 45px;
+        background: #50597b;
+        color: #fff;
+        border: solid 1px #1f253d;
+        border-radius: 5px;		
+    }
+}

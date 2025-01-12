@@ -1,0 +1,166 @@
+
+.overview-boxes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    margin-bottom: 26px;
+  }
+  .overview-boxes .box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 4 - 15px);
+    background: #fff;
+    padding: 15px 14px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  }
+  .overview-boxes .box-topic{
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .box .number{
+    display: inline-block;
+    font-size: 35px;
+    margin-top: -6px;
+    font-weight: 500;
+  }
+
+   .box .indicator{
+  display: flex;
+  align-items: center;
+}
+.box .indicator i{
+  height: 20px;
+  width: 20px;
+  background: #8FDACB;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  margin-right: 5px;
+}
+.box .indicator i.down{
+  background: #e87d88;
+}
+ .box .indicator .text{
+  font-size: 12px;
+}
+ .box .cart{
+  display: inline-block;
+  font-size: 32px;
+  height: 50px;
+  width: 50px;
+  background: #cce5ff;
+  line-height: 50px;
+  text-align: center;
+  color: #66b0ff;
+  border-radius: 12px;
+  margin: -15px 0 0 6px;
+}
+
+
+
+
+
+
+ .box .indicator{
+    display: flex;
+    align-items: center;
+  }
+   .box .indicator i{
+    height: 20px;
+    width: 20px;
+    background: #8FDACB;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+    margin-right: 5px;
+  }
+  .box .indicator i.down{
+    background: #e87d88;
+  }
+   .box .indicator .text{
+    font-size: 12px;
+  }
+   .box .cart{
+    display: inline-block;
+    font-size: 62px;
+    height: 50px;
+    width: 50px;
+    background: #ffffff;
+    line-height: 50px;
+    text-align: center;
+    color: #2073cd;
+    border-radius: 12px;
+    margin: 1px -11px 11px 49px;
+  }
+
+
+  .fa-headphones.cart:before {
+    content: "\f025";
+    position: absolute;
+    left: 451px;
+}
+
+  @media (max-width: 550px) {
+    .overview-boxes .box{
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .fa-headphones.cart:before {
+      content: "\f025";
+      position: absolute;
+      left: 122px;
+      top: 124px;
+      font-size: 40px;
+    }
+    .fa-user:before {
+      font-size: 37px;
+      position: absolute;
+      right: 46px;
+      top: 124px;
+    }
+
+    .fa-circle-exclamation:before {
+      font-size: 37px;
+      position: absolute;
+      right: 46px;
+      top: 262px;
+    }
+
+    .fa-note-sticky:before {
+      font-size: 37px;
+      position: absolute;
+      right: 215px;
+      top: 261px;
+    }
+
+    .right-side2{
+      margin-left: 18px;
+    }
+
+    .overview-boxes .box-topic {
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+  @media (max-width: 1000px) {
+    .overview-boxes .box{
+      width: calc(100% / 2 - 15px);
+      margin-bottom: 15px;
+    }
+    /* .fa-headphones.cart:before {
+      content: "\f025";
+      position: absolute;
+      left: 256px;
+      top: 124px;
+      font-size: 55px;
+    } */
+  }
