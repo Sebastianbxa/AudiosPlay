@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Portal;
 use App\Http\Controllers\Controller;
-
+use App\Models\Ajuste;
 use App\Models\Audio;
 use App\Models\Autor;
 use App\Models\Comment;
@@ -286,7 +286,11 @@ class PortalController extends Controller
             //Validar Membresia
             if ($membresia == null) {
                 $membresia == "Desactivado";
-                return view('portal.membresia')->with('membresia', $membresia);
+                $metodosPago = Ajuste::all();
+           
+                return view('portal.membresia')
+                ->with('membresia', $membresia)
+                ->with('metodosPago', $metodosPago);
                 
             }else{
                 if ($membresia->status == "Activado") {
@@ -294,11 +298,15 @@ class PortalController extends Controller
                 }else{
                     $membresia = "Desactivado"; 
                 }
-                return view('portal.membresia')->with('membresia', $membresia);
+                $metodosPago = Ajuste::all();
+                return view('portal.membresia')
+                ->with('metodosPago', $metodosPago)
+                ->with('membresia', $membresia);
                 
             }
         }
-        return view('portal.membresia');
+        $metodosPago = Ajuste::all();
+        return view('portal.membresia')->with('metodosPago', $metodosPago);
     }
 
    

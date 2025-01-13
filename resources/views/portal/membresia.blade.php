@@ -5,126 +5,137 @@
 @endsection
 
 @section('css_vista')
-<link rel="stylesheet" href="{{asset('css/card_poster2.css')}}">
-<link rel="stylesheet" href="{{asset('css/card_price_2.css')}}">
-<link rel="stylesheet" href="{{asset('css/card_mesege.css')}}">
-<link rel="stylesheet" href="{{asset('css/card_select_pay_2.css')}}">
 <link rel="stylesheet" href="{{asset('css/card_member.css')}}">
+<link rel="stylesheet" href="{{asset('css/card_price_3.css')}}">
 @endsection
 
 @section('contenido')
 <div class="container5">
-	<div class="container4" style="display: none;">
+  <div class="container4" style="display: none;">
     @if (Auth::check() && $membresia == "Activado")
     <!-- MEMBRESIA VIP -->
-    <br>
-    <div class="col-md-12" style="margin-top: 140px;">
-      <div class="card_check" > <img src="{{asset('images/check.png')}}" >
-        <h2>Membresia Activa</h2>
-        <p>Eres parte de la Familia AudiosPlay<br> Todos los privilegios adquiridos</p> <button class="button_check">Gracias por el apoyo</button> 
-      </div><br>
-    </div>
-    <br><br>
-    @else
-    <div class="card_membresia">
-    <div class="row">
-      <div class="col-sm col-md-6" >
-        <div class="membresia col-12 text-center">
-          <i class="fa-solid fa-crown" ></i>
-          <h3 style="font-size: 2.5rem; color:#ffffff;">Membresia AudiosPlay</h3><br><br>
-        </div>
+    <div class="col-md-12 active-membership">
+      <!-- MEMBRESIA VIP -->
+      <br>
+      <div class="col-md-12" style="margin-top: 140px;">
+        <div class="card_check" > <img src="{{asset('images/check.png')}}" >
+          <h2>Membresia Activa</h2>
+          <p>Eres parte de la Familia AudiosPlay<br> Todos los privilegios adquiridos</p> <button class="button_check">Gracias por el apoyo</button> 
+        </div><br>
       </div>
-      <div class="col-sm col-md-6">
-        <div class="wrapper">
-          <div class="table premium shadow-lg">
-            <div class="ribbon"><span>VIP</span></div>
-            <div class="price-section">
-              <div class="price-area">
-                <div class="inner-area"> <span class="text"></span> <span class="price">2</span> </div>
+      <br><br>
+    @else
+    <div class="card-membership">
+      <div class="row">
+        <div class="col-md-6 text-center membership-intro">
+          <i class="fa-solid fa-crown membership-icon"></i>
+          <h3 class="membership-heading">Membresía AudiosPlay</h3>
+        </div>
+        <div class="col-md-6 membership-details">
+          <div class="wrapper">
+            <div class="table premium shadow-lg">
+              <div class="price-section">
+                <div class="price-area">
+                  @foreach($metodosPago as $metodo)
+                  <div class="inner-area" style="margin-bottom: 30px;">
+                    <span class="vip-banner">Acceso VIP</span><br>
+                    <span class="price">$ {{ number_format($metodo->precio_membresia, 0, ',', '.') }} / Mes</span><br>
+                    <span class="price-subtitle">{{ $metodo->precio_membresia_descripcion }}</span>
+                  </div>
+                  @endforeach
+                </div>
+              </div>
+              <ul class="features">
+                <li>
+                  <span class="list-name">Acceso a TODO el Contenido</span>
+                  <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                  <span class="list-name">Reproductor Online</span>
+                  <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                  <span class="list-name">Audiolibros Descargables</span>
+                  <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                  <span class="list-name">Prioridad de Peticiones</span>
+                  <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+              </ul>
+              <div class="btn">
+                <button data-bs-toggle="modal" data-bs-target="#exampleModal">Adquirir</button>
               </div>
             </div>
-            <div class="package-name"></div>
-            <ul class="features">
-              <li> <span class="list-name">Acceso a TODO el Contenido</span> <span class="icon check"><i style="font-size: 30px; " class="fas fa-check"></i></span> </li>
-              <li> <span class="list-name">Reproductor Online</span> <span class="icon check"><i style="font-size: 30px; " class="fas fa-check"></i></span> </li>
-              <li> <span class="list-name">Audiolibros Descargable</span> <span class="icon check"><i style="font-size: 30px;" class="fas fa-check"></i></span> </li>
-              <li> <span class="list-name">Prioridad de Peticiones</span> <span class="icon check"><i style="font-size: 30px;" class="fas fa-check"></i></span> </li>
-            </ul>
-            <div class="btn"><button data-bs-toggle="modal" data-bs-target="#exampleModal">Adquirir</button></div>
           </div>
-        </div> 
-    
+        </div>
       </div>
     </div>
-    </div><br><br>
-  @endif
-	</div>
+    @endif
+  </div>
 </div>
 
+
 <!-- Modal -->
+@if($metodosPago->isNotEmpty() && $metodosPago->some(fn($metodo) => $metodo->imagen_metodo_pago_1 || $metodo->imagen_metodo_pago_2 || $metodo->imagen_metodo_pago_3 || $metodo->imagen_metodo_pago_4))
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 style="font-size: 25px;" class="modal-title" id="exampleModalLabel">Metodos de Pago</h5> <a type="button" class="fa-solid fa-xmark" data-bs-dismiss="modal" aria-label="Close"></a> </div>
-      <div class="modal-body">
-        <div>
-        </div>
-        <form action="{{route('portal.pagos')}}" method="POST"> @csrf
-          <div class="flex_prueba"> <label for="radio-card-1" class="radio-card">
-            <input type="radio" name="opcion" id="radio-card-1" value="1" checked />
-            <div class="card-content-wrapper">
-              <span class="check-icon"></span>
-              <div class="card-content">
-                <img
-                  src="{{asset('images/pagos/Paypal.png')}}"
-                  alt="" class="pagos"/>
-              </div>
-            </div>
-          </label>
-            <label for="radio-card-2" class="radio-card">
-            <input type="radio" name="opcion" id="radio-card-2" value="2" />
-            <div class="card-content-wrapper">
-              <span class="check-icon"></span>
-              <div class="card-content">
-                <img
-                  src="{{asset('images/pagos/Cofee2.png')}}"
-                  alt=""class="pagos"/>
-              </div>
-            </div>
-          </label> <label for="radio-card-3" class="radio-card">
-            <input type="radio" name="opcion" id="radio-card-3" value="3" />
-            <div class="card-content-wrapper">
-              <span class="check-icon"></span>
-              <div class="card-content">
-                <img
-                  src="{{asset('images/pagos/Mercado_pago2.png')}}"
-                  alt="" class="pagos"/>
-              </div>
-            </div>
-          </label> <label for="radio-card-4" class="radio-card">
-            <input type="radio" name="opcion" id="radio-card-4" value="4"/>
-            <div class="card-content-wrapper">
-              <span class="check-icon"></span>
-              <div class="card-content">
-                <img
-                  src="{{asset('images/pagos/Patreon.png')}}"
-                  alt=""class="pagos" />
-              </div>
-            </div>
-          </label>			
-          </div>
+        <h5 style="font-size: 25px;" class="modal-title" id="exampleModalLabel">Métodos de Pago</h5>
+        <a type="button" class="fa-solid fa-xmark" data-bs-dismiss="modal" aria-label="Close"></a>
       </div>
-      <div class="modal-footer"> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button> <button type="submit" class="btn btn-primary">Aceptar</button> </div>
-      </form>
+      <div class="modal-body text-center">
+        <!-- Dynamic Payment Methods -->
+        <div class="row">
+          <!-- First Column -->
+          <div class="col-md-6 mb-3">
+            @foreach($metodosPago as $metodo)
+            @if($metodo->imagen_metodo_pago_1 || $metodo->imagen_metodo_pago_3)
+            <div class="card p-3 border rounded text-center mb-3">
+              @if($metodo->imagen_metodo_pago_1)
+              <img src="{{ asset($metodo->imagen_metodo_pago_1) }}" class="img-fluid mb-2" style="max-width: 150px; margin: 0 auto;">
+              <span class="text-dark d-block mb-2" style="font-size: 25px;">{{ $metodo->metodo_pago_1 }}</span>
+              @endif
+              @if($metodo->imagen_metodo_pago_3)
+              <img src="{{ asset($metodo->imagen_metodo_pago_3) }}" class="img-fluid mb-2" style="max-width: 150px; margin: 0 auto;">
+              <span class="text-dark d-block" style="font-size: 25px;">{{ $metodo->metodo_pago_3 }}</span>
+              @endif
+            </div>
+            @endif
+            @endforeach
+          </div>
+          <!-- Second Column -->
+          <div class="col-md-6 mb-3">
+            @foreach($metodosPago as $metodo)
+            @if($metodo->imagen_metodo_pago_2 || $metodo->imagen_metodo_pago_4)
+            <div class="card p-3 border rounded text-center mb-3">
+              @if($metodo->imagen_metodo_pago_2)
+              <img src="{{ asset($metodo->imagen_metodo_pago_2) }}" class="img-fluid mb-2" style="max-width: 150px; margin: 0 auto;">
+              <span class="text-dark d-block mb-2" style="font-size: 25px;">{{ $metodo->metodo_pago_2 }}</span>
+              @endif
+              @if($metodo->imagen_metodo_pago_4)
+              <img src="{{ asset($metodo->imagen_metodo_pago_4) }}" class="img-fluid mb-2" style="max-width: 150px; margin: 0 auto;">
+              <span class="text-dark d-block" style="font-size: 25px;">{{ $metodo->metodo_pago_4 }}</span>
+              @endif
+            </div>
+            @endif
+            @endforeach
+          </div>
+        </div>
+        <!-- WhatsApp Button with Icon -->
+        <a href="{{ $metodo->whatsapp }}" target="_blank" class="btn btn-success" style="font-size: 20px;">
+          <i class="fa-brands fa-whatsapp me-2" ></i> Enviar Comprobante por WhatsApp
+        </a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
     </div>
   </div>
-</div> 
-<!-- Informacion -->
-<div class="email" style="display: none;">
-	<p>Mayor información</p>
-	<h5>soporte@audiosplay.com</h5> 
 </div>
+@endif
+
 @endsection
 
 @section('js_padre')

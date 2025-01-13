@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\AjustesController;
 use App\Http\Controllers\Panel\PublicacionController;
 use App\Http\Controllers\Portal\AudiolibroController;
 use App\Http\Controllers\Panel\EtiquetaController;
@@ -173,6 +174,14 @@ Route::middleware([
     //Publicidad
     Route::resource('panel/publicidad/admin', PublicidadController::class)->names('admin.publicidad');
     
+    //Ajustes
+    Route::get('panel/admin/ajustes/', [AjustesController::class, 'index'])->name('admin.ajustes');
+    Route::post('panel/admin/ajustes/store', [AjustesController::class, 'store'])->name('admin.ajustes.store');
+    Route::get('panel/admin/ajustes/', [AjustesController::class, 'index'])->name('admin.ajustes');
+    Route::delete('panel/admin/ajustes/{ajuste}', [AjustesController::class, 'destroy'])->name('admin.ajustes.destroy');
+    Route::put('panel/admin/ajustes/{ajuste}', [AjustesController::class, 'update'])->name('admin.ajustes.update');
+
+
 
     //Roles y usuarioa
     Route::resource('admin/roles', RoleController::class)->names('admin.roles');

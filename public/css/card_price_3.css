@@ -1,0 +1,143 @@
+  /* General Styling */
+  .container5 {
+    padding: 60px;
+  }
+  
+  .card-check,
+  .table.premium {
+    border-radius: 10px;
+    background: #ffffff;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+  }
+  
+  .card-check img.check-icon {
+    max-width: 80px;
+    margin-bottom: 15px;
+  }
+  
+  .membership-title {
+    color: #4caf50;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .membership-description {
+    color: #555;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .btn-check {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .btn-check:hover {
+    background-color: #45a049;
+  }
+  
+  /* Membership Card */
+  .card-membership {
+    margin-top: 40px;
+  }
+  
+  .membership-intro {
+    margin-bottom: 20px;
+  }
+  
+  .membership-icon {
+    font-size: 12rem;
+    color: #ffffff;
+  }
+  
+  .membership-heading {
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  
+  .table.premium .price-area .price {
+    font-size: 2rem;
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  .table.premium ul.features {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .table.premium ul.features li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table.premium ul.features li .icon.check {
+    color: #4caf50;
+    font-size: 1.5rem;
+  }
+  
+  .table.premium .btn button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .table.premium .btn button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  .precio_descripcion p {
+   color: #4caf50;
+   font-size: 3em;
+  }
+  
+  
+  .vip-banner {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .price-subtitle {
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  
+  
+  @media screen and (max-width: 1160px) {
+  
+  }
+  @media screen and (max-width: 950px) {
+  
+  }
+  @media screen and (max-width: 768px) {
+    .container5 {
+    padding: 20px;
+  }
+  }
+  

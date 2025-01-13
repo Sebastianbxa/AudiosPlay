@@ -289,29 +289,21 @@ return [
     |
     */
 
-    'menu' => [
-        // Navbar items:
+'menu' => [
         [
             'text' => 'Inicio',
             'url'  => 'panel/dashboard/home',
             'icon' => 'fas fa-home',
             'can'  => 'admin.index',
-            
-            
         ],
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
-
-        // Sidebar items:
-        ['header' => 'Editor'],
         [
             'text' => 'Crear publicacion',
             'url'  => 'panel/create',
             'icon' => 'fas fa-pencil-alt',
-            
-            
         ],
         [
             'text' => 'Mis Publicaciones',
@@ -324,88 +316,86 @@ return [
             'icon' => 'fas fa-book-open',
             'can'  => 'admin.index',
         ],
-        ['header' => 'Audiolibro',
-        'can'  => 'admin.index',
-        ],
         [
             'text' => 'Etiquetas',
             'url'  => 'panel/etiqueta/admin',
             'icon' => 'fas fa-wrench',
             'can'  => 'admin.index',
         ],
-        ['header' => 'Colecciones',
-        'can'  => 'admin.index',
+        [
+            'text'    => 'Audiolibros',
+            'icon'    => 'fas fa-headphones',
+            'can'     => 'admin.index',
+            'submenu' => [
+                [
+                    'text' => 'Sagas',
+                    'url'  => 'panel/sagas/admin',
+                ],
+                [
+                    'text' => 'Top',
+                    'url'  => 'panel/top/admin',
+                    'can'  => 'admin.top.index',
+                ],
+                [
+                    'text' => 'Recomendados',
+                    'url'  => 'panel/recomendado/all',
+                ],
+            ],
         ],
         [
-            'text' => 'Sagas',
-            'url'  => 'panel/sagas/admin',
-            'icon' => 'fas fa-headphones',
-            'can'  => 'admin.index',
+            'text'    => 'Atención al cliente',
+            'icon'    => 'fas fa-comment-alt',
+            'can'     => 'admin.index',
+            'submenu' => [
+                [
+                    'text' => 'Peticiones',
+                    'url'  => 'panel/peticiones/all',
+                ],
+                [
+                    'text' => 'Reportes',
+                    'url'  => 'panel/reportes/all',
+                ],
+                [
+                    'text' => 'Contactos',
+                    'url'  => 'panel/contacto/all',
+                ],
+            ],
         ],
         [
-            'text' => 'Top',
-            'url'  => 'panel/top/admin',
-            'icon' => 'fas fa-headphones',
-            'can'  => 'admin.top.index',
+            'text'    => 'Gestión de Usuarios',
+            'icon'    => 'fas fa-users-cog',
+            'can'     => 'admin.users',
+            'submenu' => [
+                [
+                    'text' => 'Membresía',
+                    'url'  => 'panel/membresia/admin',
+                    'icon' => 'fas fa-money-check',
+                ],
+                [
+                    'text' => 'Usuarios',
+                    'url'  => 'admin/users',
+                ],
+                [
+                    'text' => 'Roles',
+                    'url'  => 'admin/roles',
+                    'can'  => 'admin.roles',
+                ],
+            ],
         ],
-
-        [
-            'text' => 'Recomendados',
-            'url'  => 'panel/recomendado/all',
-            'icon' => 'fas fa-headphones',
-            'can'  => 'admin.index',
-        ],
-        ['header' => 'Soporte',
-        'can'  => 'admin.index',
-        ],
-        [
-            'text' => 'Peticiones',
-            'url'  => 'panel/peticiones/all',
-            'icon' => 'fas fa-comment-alt',
-            'can'  => 'admin.index',
-        ],
-        [
-            'text' => 'Reportes',
-            'url'  => 'panel/reportes/all',
-            'icon' => 'fas fa-comment-alt',
-            'can'  => 'admin.index',
-        ],
-        [
-            'text' => 'Contactos',
-            'url'  => 'panel/contacto/all',
-            'icon' => 'fas fa-comment-alt',
-            'can'  => 'admin.index',
-        ],
-        ['header' => 'Admin',
-        'can'  => 'admin.users',
-        ],
-        [
-            'text' => 'Membresia',
-            'url'  => 'panel/membresia/admin',
-            'icon' => 'fas fa-money-check',
-            'can'  => 'admin.users',
-        ],
-        [
-            'text' => 'Usuarios',
-            'url'  => 'admin/users',
-            'icon' => 'fas fa-users-cog',
-            'can'  => 'admin.users',
-        ],
-        [
-            'text' => 'Roles',
-            'url'  => 'admin/roles',
-            'icon' => 'fas fa-user-cog',
-            'can'  => 'admin.roles',
-        ],
-        [
+    /*     [
             'text' => 'Publicidad',
             'url'  => 'panel/publicidad/admin',
             'icon' => '',
             'can'  => 'admin.users',
+        ], */
+        [
+            'text' => 'Ajustes',
+            'url'  => 'panel/admin/ajustes',
+            'icon' => 'fas fa-cogs',
+            'can'  => 'admin.users',
         ],
-      
-        
     ],
+
 
     /*
     |--------------------------------------------------------------------------
