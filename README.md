@@ -1,66 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# AudiosPlay
+Es una plataforma de audiolibros desarrollada en **Laravel**, diseñada para gestionar usuarios y contenido. Incluye un sistema de membresías para ofrecer acceso personalizado a los recursos disponibles.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+> Docuementación completa: [d0cumentation.audiosplay.com](https://documentation.audiosplay.com)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️   Instalación  
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Requisitos 
+Tener instalado las siguientes herramientas: 
+- **Xampp 8.2.12**
+- **PHP 8.1**  (Viene incluido en xampp)  
+- **MySQL**  (Viene incluido en xampp) 
+- **Node.js 17.9.1**  
+- **Composer**  
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Instrucciones  
+1. **Clonar o descargar** el repositorio del proyecto.  
+2. **Establecer variables de entorno.**  
+   - Copiar `.env.example` y renombrar como `.env`
+   - Crear una base de datos en phpmyadmin
+   - Escribir las credenciales de la base de datos en el archivos `.env` en la seccion **Conexion_BD**, por defecto el DB_USERNAME es root y DB_PASSWORD se dejan en blanco.  
+3. **Instalar Dependencias**  
+   Abra una terminal en el directorio raíz del proyecto y ejecute:  
+   ```bash
+   composer install
+   composer require laravel/legacy-factories
+   npm install
+   php artisan key:generate
+   npm run build
+   php artisan migrate:fresh --seed
+4. **Levantar servidor**  
+   ```bash
+   php artisan serve
+4. **Crear usuario**
+Se ha implementa recaptcha v3 para no permirir el registro de boots, y se realiza el siguiente procedimiento: .
+    - Realizar el registro en https://www.google.com/recaptcha/admin
+    - En la seccion dominios se crean 2 llamados localhost y 127.0.0.1
+    - Al terminar el registro se generan 2 claves que se ponen en la sección de **Recaptcha_Google** en el archivo `.env`  
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
+## 🚀 Credenciales
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Panel Administrativo
+**Credenciales:**  
+- **Correo:** `admin@example.com`  
+- **Contraseña:** `AudiosPlay12*`  
 
-## Laravel Sponsors
+![Login](<https://audiosplay.com/images/screenshot/login.png>)
+![Panel](<https://audiosplay.com/images/screenshot/panel.png>)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Sitio web / Portal
+![Portal](<https://audiosplay.com/images/screenshot/portal.png>)
+![Portal_eccion_2](<https://audiosplay.com/images/screenshot/portal_seccion_2.png>)
+![Audiolibros](<https://audiosplay.com/images/screenshot/audiolibros.png>)
 
-### Premium Partners
+### Sitio web / Reproductor
+![Reproductor](<https://audiosplay.com/images/screenshot/audiosplay_detalles.png>)
+![Reproductor_2](<https://audiosplay.com/images/screenshot/audiosplay_detalles_2.png>)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Sitio web / Favoritos
+![Favoritos](<https://audiosplay.com/images/screenshot/favoritos.png>)
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
