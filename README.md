@@ -2,7 +2,7 @@
 Es una plataforma de audiolibros desarrollada en **Laravel**, diseñada para gestionar usuarios y contenido. Incluye un sistema de membresías para ofrecer acceso personalizado a los recursos disponibles.
 
 
-> Docuementación completa: [d0cumentation.audiosplay.com](https://documentation.audiosplay.com)
+> Docuementación completa: [documentation.audiosplay.com](https://documentation.audiosplay.com)
 
 
 ## 🛠️   Instalación  
