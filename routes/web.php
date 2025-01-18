@@ -58,6 +58,11 @@ Route::get('/sagas', [PortalController::class, 'sagas'])->name('portal.sagas');
 Route::get('/saga/{saga}', [PortalController::class, 'sagas_view'])->name('portal.sagas.view');
 Route::get('/year', [PortalController::class, 'year'])->name('portal.year');
 Route::post('/pagos', [PortalController::class, 'pagos'])->name('portal.pagos');
+Route::get('/documentation', [PortalController::class, 'documentation'])->name('portal.documentation');
+Route::get('/documentation/install', [PortalController::class, 'documentation_install'])->name('portal.documentation.install');
+
+
+
 
 
 //Audiolibro, favoritos y comentar

@@ -36,10 +36,14 @@ Tener instalado las siguientes herramientas:
    ```bash
    php artisan serve
 4. **Crear usuario**
-Se ha implementa recaptcha v3 para no permirir el registro de boots, y se realiza el siguiente procedimiento: .
-    - Realizar el registro en https://www.google.com/recaptcha/admin
-    - En la seccion dominios se crean 2 llamados localhost y 127.0.0.1
-    - Al terminar el registro se generan 2 claves que se ponen en la sección de **Recaptcha_Google** en el archivo `.env`  
+   Se ha implementado reCAPTCHA v3 para prevenir el registro de bots en la plataforma. El proceso para configurar reCAPTCHA es el siguiente:
+
+   - Registra el proyecto en Google reCAPTCHA.
+   - En la sección de dominios, añade localhost y 127.0.0.1 como dominios permitidos.
+   - Al completar el registro, se generarán dos claves (clave del sitio y clave secreta). Estas claves deben ser agregadas en el archivo `.env`, en la sección correspondiente a Recaptcha_Google.
+
+   Este procedimiento garantiza una mayor seguridad al momento de registrar nuevos usuarios.
+
 
 ---
 ## 🚀 Credenciales

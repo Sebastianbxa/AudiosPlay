@@ -400,5 +400,15 @@ class PortalController extends Controller
     }
 
 
+    public function documentation(){   
+        return view('documentation.introduction');
+    }
+
+    public function documentation_install(){   
+        return view('documentation.install');
+    }
+
+
+
 
 }
