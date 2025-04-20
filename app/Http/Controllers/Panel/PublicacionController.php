@@ -10,7 +10,9 @@ use App\Models\Etiqueta;
 use App\Models\Peticione;
 use App\Models\Reporte;
 use App\Models\User;
+use App\Models\Visit;
 use App\Models\Year;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PublicacionController extends Controller
@@ -48,6 +50,16 @@ class PublicacionController extends Controller
         $status = null;
         $peticiones = Peticione::where('status', $status)->get();
         $reportes = Reporte::all();
+
+
+        //Visitas
+        $visitasTotales = Visit::distinct('ip')->count('ip'); // IPs únicas
+        $visitasHoy = Visit::whereDate('created_at', Carbon::today())->distinct('ip')->count('ip'); // IPs únicas hoy
+
+        //Auditoria
+        $registrosTotales = Visit::count();
+        $registroHoy = Visit::whereDate('created_at', Carbon::today())->count();
+        $auditorias = Visit::orderBy('created_at', 'desc')->paginate(10);
       
 
         //Redirecciona el admin y el colaborados a distintas paginas
@@ -64,7 +76,12 @@ class PublicacionController extends Controller
             ->with('usuarios',$usuarios)
             ->with('audios',$audios)
             ->with('peticiones',$peticiones)
-            ->with('reportes',$reportes);
+            ->with('reportes',$reportes)
+            ->with('visitasTotales',$visitasTotales)
+            ->with('visitasHoy',$visitasHoy)
+            ->with('registrosTotales',$registrosTotales)
+            ->with('registroHoy',$registroHoy)
+            ->with('auditorias',$auditorias);
          }else{
             return redirect('/panel/create');
          }

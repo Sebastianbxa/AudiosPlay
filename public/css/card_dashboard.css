@@ -16,6 +16,7 @@
     padding: 15px 14px;
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    margin-top: 30px;
   }
   .overview-boxes .box-topic{
     font-size: 24px;
@@ -118,29 +119,37 @@
       content: "\f025";
       position: absolute;
       left: 122px;
-      top: 124px;
+      /*top: 124px;*/
       font-size: 40px;
     }
     .fa-user:before {
       font-size: 37px;
       position: absolute;
       right: 46px;
-      top: 124px;
+      /*top: 124px;*/
     }
 
     .fa-circle-exclamation:before {
       font-size: 37px;
       position: absolute;
       right: 46px;
-      top: 262px;
+      /*top: 262px;*/
     }
 
     .fa-note-sticky:before {
       font-size: 37px;
       position: absolute;
       right: 215px;
-      top: 261px;
+      /*top: 261px;*/
     }
+
+    .fa-chart-line:before {
+      font-size: 37px;
+      position: absolute;
+      right: 215px;
+      /*top: 261px;*/
+    }
+
 
     .right-side2{
       margin-left: 18px;
