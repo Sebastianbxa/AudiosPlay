@@ -118,7 +118,7 @@
     .fa-headphones.cart:before {
       content: "\f025";
       position: absolute;
-      left: 122px;
+      left: 130px;
       /*top: 124px;*/
       font-size: 40px;
     }
@@ -139,7 +139,9 @@
     .fa-note-sticky:before {
       font-size: 37px;
       position: absolute;
+      left: 130px;
       right: 215px;
+
       /*top: 261px;*/
     }
 
@@ -147,6 +149,7 @@
       font-size: 37px;
       position: absolute;
       right: 215px;
+      left: 130px;
       /*top: 261px;*/
     }
 
