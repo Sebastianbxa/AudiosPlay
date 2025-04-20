@@ -166,6 +166,8 @@
      <div class="tabs">
       <div class="tab"> <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch"> <label for="tab-1" class="tab-label">Reproducir</label>
        <div class="tab-content" style="width: 100%;">
+        
+        @if (Auth::check() && $membresia == "Activado")
         <div class="accordion-wrapper">
           @if ($audio->url_a)
          <div class="accordion"> <input type="radio" name="radio-a" id="check1" checked> <label class="accordion-label" for="check1">Opcion 1</label>
@@ -277,10 +279,18 @@
          </div> 
          @endif 
         </div>
+        @else
+          <div class="col-12 text-center">
+            <i class="fa-solid fa-crown" style="font-size: 150px; margin-top: 30px; color:#ffffff" ></i>
+            <h3 style="font-size: 2.5rem;">Exclusivo Miembros VIP</h3><br>
+            <a href="/membresia" type="button" class="btn btn-light btn-lg">Adquirir</a>
+          </div>
+        @endif
        </div>
       </div>
       <div class="tab" style="display: none;"> <input type="radio" name="css-tabs" id="tab-2" class="tab-switch"> <label for="tab-2" class="tab-label">Descargar</label>
        <div class="tab-content" style="width: 100%;"> {{-- Card Membresia --}}
+        @if (Auth::check() && $membresia == "Activado")
             @if ($audio->download_1)
             <div class="courses-container">
               <div class="course">
@@ -303,11 +313,19 @@
               </div>
             </div>  
             @endif 
+        @else
+          <div class="col-12 text-center">
+            <i class="fa-solid fa-crown" style="font-size: 150px; margin-top: 30px; color:#ffffff" ></i>
+            <h3 style="font-size: 2.5rem;">Exclusivo Miembros VIP</h3><br>
+            <a href="/membresia" type="button" class="btn btn-light btn-lg">Adquirir</a>
+          </div>
+        @endif
 
        </div>
       </div>
       <div class="tab" style="display: none;"> <input type="radio" name="css-tabs" id="tab-3" class="tab-switch"> <label for="tab-3" class="tab-label">Reportar</label>
        <div class="tab-content" style="width: 100%;">
+        @if (Auth::check() && $membresia == "Activado")
           <div class="wrapper3">
           <p>Reporté</p>
           <form class="form_reportar" action="{{route('portal.reporte', $audio->id)}}" method="POST"> @csrf
@@ -318,6 +336,13 @@
             <div class="input-box button"> <input type="Submit" value="Enviar"> </div>
           </form>
           </div>
+        @else
+          <div class="col-12 text-center">
+            <i class="fa-solid fa-crown" style="font-size: 150px; margin-top: 30px; color:#ffffff" ></i>
+            <h3 style="font-size: 2.5rem;">Exclusivo Miembros VIP</h3><br>
+            <a href="/membresia" type="button" class="btn btn-light btn-lg">Adquirir</a>
+          </div>
+          @endif
        </div>
       </div>
      </div>

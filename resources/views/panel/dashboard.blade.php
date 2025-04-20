@@ -65,7 +65,100 @@
 	  </div>
 	  <i class="fa-solid fa-circle-exclamation cart"></i>
 	</div>
+
+	<div class="box">
+		<div class="right-side">
+		  <div class="box-topic">Visitas</div>
+		  <div class="number">{{ $visitasTotales }}</div>
+		  <div class="indicator">
+			  <span style="color: rgba(185, 180, 180, 0.959)">
+				  Hoy: {{ $visitasHoy }}
+			  </span>
+		  </div>
+		</div>
+		<i class="fa-solid fa-chart-line cart"></i>
+	  </div>
   </div>
+
+  <div class="container mt-6">
+	<div class="mb-4 mt-5">
+        <h3 class="fw-bold border-bottom pb-2">Auditoría</h3>
+    </div>
+	<div class="row mb-4">
+		<!-- Card de registros hoy -->
+		<div class="col-md-6">
+			<div class="card shadow border-0 text-white bg-gradient" style="background: linear-gradient(135deg, #4e73df, #224abe);">
+				<div class="card-body d-flex align-items-center justify-content-between">
+					<div>
+						<h6 class="text-uppercase mb-1">Registros Hoy</h6>
+						<h2 class="fw-bold">{{ $registroHoy }}</h2>
+					</div>
+					<div>
+						<i class="bi bi-calendar-day fs-1"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- Card de registros totales -->
+		<div class="col-md-6">
+			<div class="card shadow border-0 text-white bg-gradient" style="background: linear-gradient(135deg, #1cc88a, #17a673);">
+				<div class="card-body d-flex align-items-center justify-content-between">
+					<div>
+						<h6 class="text-uppercase mb-1">Registros Totales</h6>
+						<h2 class="fw-bold">{{ $registrosTotales }}</h2>
+					</div>
+					<div>
+						<i class="bi bi-bar-chart-line fs-1"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+    <!-- Card para la tabla de auditoría -->
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Registros</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>IP</th>
+                            <th>URL</th>
+                            <th>Método</th>
+                            <th>Referer</th>
+                            <th>User Agent</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($auditorias as $auditoria)
+                            <tr>
+                                <td>{{ $auditoria->ip }}</td>
+                                <td>{{ Str::limit($auditoria->url, 50) }}</td>
+                                <td><span class="badge bg-info text-dark">{{ $auditoria->method }}</span></td>
+                                <td>{{ Str::limit($auditoria->referer, 40) }}</td>
+                                <td>{{ Str::limit($auditoria->user_agent, 50) }}</td>
+                                <td>{{ $auditoria->created_at->format('d/m/Y H:i') }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Paginación -->
+            <div class="d-flex justify-content-center mt-3">
+                {{ $auditorias->links('pagination::bootstrap-4') }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 @stop
