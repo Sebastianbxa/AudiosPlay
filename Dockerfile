@@ -1,5 +1,5 @@
 # ---------- STAGE 1: composer (instala dependencias PHP) ----------
-FROM composer:latest AS composer_stage
+FROM composer:2.7 AS composer_stage
 
 WORKDIR /app
 
