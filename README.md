@@ -14,6 +14,7 @@ Tener instalado las siguientes herramientas:
 - **MySQL**  (Viene incluido en xampp) 
 - **Node.js 17.9.1**  
 - **Composer**  
+- **Docker** (opcional, para despliegue en contenedores) 
 
 ---
 
