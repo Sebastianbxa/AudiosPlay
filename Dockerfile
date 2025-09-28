@@ -15,7 +15,7 @@ WORKDIR /app
 # Copiar composer.json y composer.lock primero para aprovechar cache
 COPY composer.json composer.lock ./
 
-# Instalar dependencias (con autoloader optimizado, sin dev)
+# Instalar dependencias PHP con autoloader optimizado
 RUN composer install \
     --no-dev \
     --no-scripts \
@@ -34,14 +34,13 @@ COPY . .
 RUN npm run build
 
 
-# ---------- STAGE 3: app final (PHP + Apache) ----------
-FROM php:8.1-apache AS app
+# ---------- STAGE 3: app final ----------
+FROM php:8.1-cli AS app
 
-# Habilitar extensiones y mod_rewrite
+# Instalar dependencias de PHP
 RUN apt-get update && apt-get install -y \
     libzip-dev unzip \
     && docker-php-ext-install zip pdo pdo_mysql \
-    && a2enmod rewrite \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
@@ -55,12 +54,11 @@ COPY . .
 # Copiar build del frontend desde la etapa node
 COPY --from=frontend /app/public/build ./public/build
 
-# Dar permisos
+# Permisos para storage y cache
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Ajustar DocumentRoot a /public
-RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /etc/apache2/sites-available/000-default.conf
+EXPOSE 8000
 
-EXPOSE 80
-CMD ["apache2-foreground"]
+# Comando para iniciar Laravel en puerto 8000
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
