@@ -15,11 +15,11 @@ WORKDIR /app
 # Copiar composer.json y composer.lock primero para aprovechar cache
 COPY composer.json composer.lock ./
 
-# Instalar dependencias (sin autoloader, sin dev)
+# Instalar dependencias (con autoloader optimizado, sin dev)
 RUN composer install \
     --no-dev \
     --no-scripts \
-    --no-autoloader \
+    --optimize-autoloader \
     --prefer-dist \
     --no-progress \
     --no-interaction
