@@ -1,15 +1,21 @@
-# ---------- STAGE 1: composer (instalar dependencias PHP) ----------
-FROM composer:2 AS composer_stage
+# ---------- STAGE 1: composer (instala dependencias PHP) ----------
+FROM php:8.1-cli AS composer_stage
+
+# Instalar dependencias necesarias para composer
+RUN apt-get update && apt-get install -y \
+    git unzip libzip-dev \
+    && docker-php-ext-install zip pdo pdo_mysql \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instalar Composer manualmente
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /app
 
-# Instalar dependencias del sistema necesarias para Composer
-RUN apk add --no-cache git unzip libzip-dev
-
-# Copiar composer.json y composer.lock primero para aprovechar la cache de Docker
+# Copiar composer.json y composer.lock primero para aprovechar cache
 COPY composer.json composer.lock ./
 
-# Instalar dependencias de PHP (sin autoloader, sin dev, sin scripts)
+# Instalar dependencias (sin autoloader, sin dev)
 RUN composer install \
     --no-dev \
     --no-scripts \
@@ -19,57 +25,42 @@ RUN composer install \
     --no-interaction
 
 
-# ---------- STAGE 2: node (build de frontend con Vite o Mix) ----------
+# ---------- STAGE 2: node (build de frontend si usas Vite) ----------
 FROM node:18 AS frontend
-
 WORKDIR /app
-
-# Copiar package.json y lock para aprovechar cache
-COPY package.json package-lock.json* yarn.lock* ./
-
-# Instalar dependencias de Node
+COPY package*.json ./
 RUN npm install
-
-# Copiar el resto del proyecto y compilar frontend
 COPY . .
 RUN npm run build
 
 
-# ---------- STAGE 3: php-apache (runtime de Laravel) ----------
+# ---------- STAGE 3: app final (PHP + Apache) ----------
 FROM php:8.1-apache AS app
+
+# Habilitar extensiones y mod_rewrite
+RUN apt-get update && apt-get install -y \
+    libzip-dev unzip \
+    && docker-php-ext-install zip pdo pdo_mysql \
+    && a2enmod rewrite \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
 
-# Instalar dependencias de sistema y extensiones PHP necesarias
-RUN apt-get update && apt-get install -y \
-    git unzip libzip-dev \
-    && docker-php-ext-install zip pdo pdo_mysql \
-    && rm -rf /var/lib/apt/lists/*
-
-# Habilitar mod_rewrite en Apache para Laravel
-RUN a2enmod rewrite
-
-# Copiar dependencias de Composer desde stage composer
+# Copiar dependencias PHP desde la etapa composer
 COPY --from=composer_stage /app/vendor ./vendor
 
-# Copiar build de frontend desde stage node
-COPY --from=frontend /app/public/build ./public/build
-
-# Copiar el resto del proyecto
+# Copiar código de la app
 COPY . .
 
-# Crear directorios de Laravel con permisos correctos
-RUN mkdir -p storage bootstrap/cache \
-    && chown -R www-data:www-data storage bootstrap/cache
+# Copiar build del frontend desde la etapa node
+COPY --from=frontend /app/public/build ./public/build
 
-# Generar autoloader optimizado de Composer
-RUN composer dump-autoload --optimize
+# Dar permisos
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Entrypoint para generar APP_KEY si no existe y ejecutar migrations
-COPY ./docker/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Ajustar DocumentRoot a /public
+RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /etc/apache2/sites-available/000-default.conf
 
 EXPOSE 80
-
-ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
