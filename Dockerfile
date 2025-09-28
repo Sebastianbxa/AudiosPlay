@@ -36,7 +36,7 @@ RUN npm run build
 
 
 # ---------- STAGE 3: php-apache (runtime de Laravel) ----------
-FROM php:8.2-apache AS app
+FROM php:8.1-apache AS app
 
 WORKDIR /var/www/html
 
